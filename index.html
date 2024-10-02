@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Go Out With Me?</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      h1 {
+        color: #ff4081;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .button {
+        padding: 10px 20px;
+        font-size: 20px;
+        margin: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        transition: all 0.2s;
+      }
+      .yes {
+        background-color: #4caf50;
+        color: white;
+      }
+      .no {
+        background-color: #f44336;
+        color: white;
+      }
+      .no:hover {
+        background-color: #d32f2f;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Will you go out with me?</h1>
+    <img
+      id="bearGif"
+      src="https://media.tenor.com/ZhNxfL0GmoMAAAAi/mocha-bear-hearts.gif"
+      alt="Bear with hearts"
+    />
+
+    <div>
+      <button class="button yes" onclick="handleYes()">Yes</button>
+      <button class="button no" onclick="handleNo()">No</button>
+    </div>
+
+    <script>
+      let noCount = 0;
+
+      function handleYes() {
+        document.getElementById("bearGif").src =
+          "https://media.tenor.com/dVMwRYiAGsAAAAAi/kiss.gif"; // Change to kiss GIF
+        document.querySelector("h1").innerText = "Yay!!!";
+      }
+
+      function handleNo() {
+        noCount++;
+        const noButton = document.querySelector(".no");
+
+        switch (noCount) {
+          case 1:
+            noButton.innerText = "Are you sure?";
+            break;
+          case 2:
+            noButton.innerText = "Really sure?";
+            break;
+          case 3:
+            noButton.innerText = "Pretty please?";
+            break;
+          case 4:
+            noButton.innerText = "Okay fine, I will stop asking.";
+            break;
+          case 5:
+            noButton.innerText = "Maybe?";
+            noCount = 0; // Restart after this
+            break;
+          default:
+            // This will keep the last case's text
+            break;
+        }
+
+        // Increase button size
+        YesButton.style.fontSize = 20 + noCount * 5 + "px";
+      }
+    </script>
+  </body>
+</html>
